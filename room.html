@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 렌더 게이트: 매핑 전 placeholder/fallback 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>html.tpl-loading body{opacity:0}body{opacity:1;transition:opacity .3s ease}</style>
+    <script>document.documentElement.classList.add('tpl-loading');window.__tplReveal=function(){document.documentElement.classList.remove('tpl-loading');};setTimeout(function(){window.__tplReveal&&window.__tplReveal();},3000);</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:,">
+    <title data-page-title>경주 웨이브 독채 풀빌라 펜션 - 객실안내</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/room.css" />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="경주 웨이브 독채 풀빌라 펜션 - 객실안내" />
+  <meta property="og:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta property="og:url" content="https://wavepoolvilla.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="경주 웨이브 독채 풀빌라 펜션 - 객실안내" />
+  <meta name="twitter:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta name="naver-site-verification" content="b76a3a7f81ddfae14c32c6bc8e633c1aa5fd2ff0" />
+  <meta name="google-site-verification" content="yxxNnQN-TP7reQnPiZLjcQA4Hm2HZsdc6gpjAzsKnm0" />
+</head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- MAPPER: rooms[current].images[0].interior[isSelected] + name -->
+        <div class="con0" data-aos="fade-up">
+          <div class="swiper">
+            <div class="swiper-wrapper" data-room-hero-slides></div>
+            <div class="swiperNavi">
+              <div class="swiper-button-prev">
+                <img src="images/icon_left_1.png" alt="" />
+                Prev
+              </div>
+              <div class="bar"></div>
+              <div class="swiper-button-next">
+                Next
+                <img src="images/icon_right_1.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="con8">
+          <div class="w1440">
+            <!-- MAPPER: rooms[current].name + description + images[0].thumbnail[0].url -->
+            <div class="textWrap">
+              <div class="conTitle2">
+                <div class="tx1">ROOM</div>
+                <!-- MAPPER: rooms[current].name -->
+                <div class="tx2">
+                  <div class="spot" data-room-name></div>
+                </div>
+                <!-- MAPPER: customFields.pages.room[id].sections[0].hero.title -->
+                <div class="tx3" data-room-description></div>
+              </div>
+              <a href="#!" data-booking-link class="btnBooking_2">BOOKING</a>
+            </div>
+            <!-- MAPPER: rooms[?id].images[0].thumbnail[0].url -->
+            <div class="imgWrap">
+              <img alt="" data-room-main-image />
+            </div>
+          </div>
+        </div>
+        <div class="con9 w1440">
+          <!-- PC 버전 -->
+          <div class="price_table for_pc">
+            <!-- MAPPER: rooms[current].name/baseOccupancy/maxOccupancy/description/size -->
+            <table cellspacing="0" cellpadding="0" class="table_default">
+              <thead>
+                <tr>
+                  <th style="width: 15%;">객실명</th>
+                  <th style="width: 5%;">기준</th>
+                  <th style="width: 5%;">최대</th>
+                  <th style="width: 20%;">유형</th>
+                  <th style="width: 20%;">평형</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-room-name></td>
+                  <td data-room-base-occupancy></td>
+                  <td data-room-max-occupancy></td>
+                  <td data-room-type></td>
+                  <td data-room-size></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- MAPPER: rooms[current].amenities (집기품목) -->
+            <ul class="table_text">
+              <li>
+                <strong>집기품목</strong> :
+                <span data-room-amenities></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 모바일 버전 -->
+          <div class="price_table for_m">
+            <!-- MAPPER: rooms[current].name/baseOccupancy/maxOccupancy/description/size -->
+            <table cellspacing="0" cellpadding="0" class="table_default">
+              <thead>
+                <tr>
+                  <th>객실명</th>
+                  <th>기준</th>
+                  <th>최대</th>
+                  <th>유형</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-room-name></td>
+                  <td data-room-base-occupancy></td>
+                  <td data-room-max-occupancy></td>
+                  <td data-room-type></td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- MAPPER: rooms[current].amenities (집기품목) -->
+            <ul class="table_text">
+              <li>
+                <strong>집기품목</strong> :
+                <span data-room-amenities></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MAPPER: rooms[?id].images[0].exterior[isSelected][0~1] -->
+        <div class="con10 w1440">
+          <img alt="" data-room-image-0 />
+          <img alt="" data-room-image-1 />
+        </div>
+        <div class="con1">
+          <div class="w1440">
+            <div class="conTitle" data-aos="fade-up">
+              <div class="tx1">ROOM PREVIEW</div>
+              <div class="tx2">
+                여유롭고 특별한 공간<br />
+                <!-- MAPPER: property.name -->
+                <div class="bold spot" data-property-name></div>
+              </div>
+            </div>
+            <div class="swiper-pagination" data-aos="fade-up"></div>
+            <div class="swiperControl">
+              <div class="fraction">
+                <div class="number"></div>
+                <span class="bar">/</span>
+                <div class="total"></div>
+              </div>
+              <div class="navi">
+                <div class="swiper-button-prev">
+                  <img src="images/icon_left_2.png" alt="" />
+                </div>
+                <div class="swiper-button-next">
+                  <img src="images/icon_right_2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- MAPPER: rooms[].images[0].thumbnail[0].url + name + description -->
+            <div class="swiper right" data-aos="fade-left">
+              <div class="swiper-wrapper" data-index-room-slides></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/room-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/room.js"></script>
+  </body>
+</html>

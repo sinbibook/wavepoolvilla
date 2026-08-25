@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 렌더 게이트: 매핑 전 placeholder/fallback 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>html.tpl-loading body{opacity:0}body{opacity:1;transition:opacity .3s ease}</style>
+    <script>document.documentElement.classList.add('tpl-loading');window.__tplReveal=function(){document.documentElement.classList.remove('tpl-loading');};setTimeout(function(){window.__tplReveal&&window.__tplReveal();},3000);</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:,">
+    <title data-page-title>경주 웨이브 독채 풀빌라 펜션 - 예약안내</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/reservation.css" />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="경주 웨이브 독채 풀빌라 펜션 - 예약안내" />
+  <meta property="og:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta property="og:url" content="https://wavepoolvilla.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="경주 웨이브 독채 풀빌라 펜션 - 예약안내" />
+  <meta name="twitter:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta name="naver-site-verification" content="b76a3a7f81ddfae14c32c6bc8e633c1aa5fd2ff0" />
+  <meta name="google-site-verification" content="yxxNnQN-TP7reQnPiZLjcQA4Hm2HZsdc6gpjAzsKnm0" />
+</head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- MAPPER: customFields.pages.reservation.sections[0].hero.images[isSelected] -->
+        <div class="con01" data-aos="fade-up">
+          <div class="img swiper-container">
+            <div class="swiper-wrapper" data-reservation-hero-slides></div>
+          </div>
+          <div class="tx1_1">이용안내</div>
+        </div>
+        <div class="conReservation w1440">
+          <div class="conTitle" data-aos="fade-up">
+            <div class="tx1">INFORMATION</div>
+            <div class="tx2">
+              <div class="bold spot">펜션정보</div>
+            </div>
+          </div>
+
+          <!-- MAPPER: property.usageGuide (아코디언 없이 환불정보처럼 바로 표시) -->
+          <div class="reservationWrap" data-aos="fade-up">
+            <div class="bottom" data-reservation-usage-content></div>
+          </div>
+        </div>
+
+        <!-- MAPPER: property.refundPolicies[] (refundProcessingDays, refundRate) -->
+        <div class="conRefund w1440">
+          <div class="conTitle" data-aos="fade-up">
+            <div class="tx1">REFUND INFO</div>
+            <div class="tx2">
+              <span class="bold spot">환불정보</span>
+            </div>
+          </div>
+          <div class="bottom" data-aos="fade-up" data-reservation-refund-table></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/reservation-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/reservation.js"></script>
+  </body>
+</html>

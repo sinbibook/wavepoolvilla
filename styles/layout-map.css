@@ -1,0 +1,104 @@
+/* ============================================================
+   Layout Map Page - Con01 (Hero)
+   ============================================================ */
+.con01 {
+  position: relative;
+}
+.con01 .img {
+  width: 100%;
+  aspect-ratio: 1920 / 460;
+  background-size: cover !important;
+  background-position: center;
+}
+.con01 .tx1_1 {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  z-index: 11;
+  transform: translateX(-50%);
+  font-size: 40px;
+  color: #fff;
+}
+@media (max-width: 1440px) {
+  .con01 .img {
+    height: 420px;
+  }
+  .con01 .tx1_1 {
+    bottom: 60px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 1180px) {
+  .con01 .img {
+    height: 300px;
+  }
+}
+
+/* ============================================================
+   Layout Map Page - Con14 (Layout Map)
+   ============================================================ */
+.con14 {
+  padding-top: 180px;
+  padding-bottom: 190px;
+}
+@media (max-width: 1440px) {
+  .con14 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+.con14 .conTitle {
+  margin-bottom: 40px;
+}
+
+.con14 img {
+  width: 100%;
+}
+
+/* Legacy class names for compatibility */
+.conLayoutMap {
+  padding-top: 180px;
+  padding-bottom: 190px;
+}
+@media (max-width: 1440px) {
+  .conLayoutMap {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+.conLayoutMap .conTitle {
+  margin-bottom: 40px;
+}
+
+.mapDesc {
+  font-size: 20px;
+  color: #000000;
+  word-break: keep-all;
+  line-height: 1.5;
+}
+@media (max-width: 1440px) {
+  .mapDesc {
+    font-size: 18px;
+  }
+}
+
+.mapContent {
+  margin-top: 60px;
+}
+@media (max-width: 1440px) {
+  .mapContent {
+    margin-top: 40px;
+  }
+}
+
+.mapItem img {
+  width: 100%;
+  display: block;
+}
+
+/* ROOM PREVIEW 제목 - 영문 폰트 */
+.con14 .conTitle .tx1 {
+  font-family: var(--font-en-main);
+}

@@ -1,0 +1,98 @@
+/* ============================================================
+   Nearby Attractions Page - Con01 (Hero)
+   ============================================================ */
+.con01 {
+  position: relative;
+}
+
+.con01 .img {
+  width: 100%;
+  aspect-ratio: 1920 / 460;
+  background-size: cover !important;
+}
+
+@media (max-width: 1440px) {
+  .con01 .img {
+    height: 420px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .con01 .img {
+    height: 300px;
+  }
+}
+
+.con01 .tx1_1 {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  z-index: 11;
+  transform: translateX(-50%);
+  font-size: 40px;
+  color: #fff;
+}
+
+@media (max-width: 1440px) {
+  .con01 .tx1_1 {
+    bottom: 20px;
+    font-size: 20px;
+  }
+}
+
+/* ============================================================
+   Nearby Attractions Page (Tour) - Con13
+   ============================================================ */
+.con13 {
+  padding-top: 240px;
+  padding-bottom: 240px;
+}
+@media (max-width: 1440px) {
+  .con13 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+.con13 .itemWrap {
+  display: grid;
+  grid-gap: 120px 40px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 70px;
+}
+@media (max-width: 1440px) {
+  .con13 .itemWrap {
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+  }
+  .con13 .itemWrap img { width: 100%; }
+}
+@media (max-width: 1180px) {
+  .con13 .itemWrap { grid-template-columns: repeat(1, 1fr); }
+}
+.con13 .item { font-weight: 500; }
+/* 세로 이미지를 첨부해도 가로 카드 비율로 통일되도록 고정 비율 + cover 적용 */
+.con13 .item img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.con13 .item .tx1 {
+  margin-top: 30px;
+  font-size: 14px;
+}
+.con13 .item .tx1 .bold {
+  font-size: 18px;
+  font-weight: 700;
+}
+.con13 .item .tx1 .bar {
+  margin: 0 5px;
+  font-size: 19px;
+}
+.con13 .item .tx2 {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #111;
+  line-height: 1.4;
+}

@@ -1,0 +1,75 @@
+<header class="header">
+  <div class="w1440">
+    <h1 class="logo">
+      <a href="index.html">
+        <!-- MAPPER: homepage.images[0].logo[isSelected].url -->
+        <img data-logo alt="logo" />
+      </a>
+    </h1>
+    <nav class="menu">
+      <div class="depth1">
+        <span>ABOUT</span>
+        <div class="depth2">
+          <a href="main.html">펜션소개</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>ROOMS</span>
+        <div class="depth2" data-rooms-submenu>
+          <!-- MAPPER: layout-map 링크 동적 생성 -->
+          <!-- MAPPER: customFields.roomtypes[].name → 동적 생성 (header-footer-mapper) -->
+          <a data-room-menu-link href="room-list.html">객실 목록</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>SPECIAL</span>
+        <div class="depth2">
+          <!-- MAPPER: property.facilities[].name → 동적 생성 (header-footer-mapper) -->
+          <a data-facility-menu-link href="facility.html">시설 안내</a>
+        </div>
+      </div>
+      <div class="depth1">
+        <span>RESERVE</span>
+        <div class="depth2">
+          <!-- MAPPER: property.realtimeBookingId -->
+          <a data-booking-link href="#!">예약하기</a>
+          <a href="reservation.html">이용안내</a>
+        </div>
+      </div>
+      <div class="depth1" data-travel-menu>
+        <span>TRAVEL</span>
+        <div class="depth2" data-travel-submenu>
+          <!-- MAPPER: nearby-attractions 링크 동적 생성 -->
+        </div>
+      </div>
+      <div class="depth1">
+        <span>LOCATION</span>
+        <div class="depth2">
+          <a href="directions.html">오시는길</a>
+        </div>
+      </div>
+    </nav>
+    <div class="right">
+      <div class="btnReservation">
+        <!-- MAPPER: property.realtimeBookingId -->
+        <a data-booking-link href="#!">
+          <img src="images/icon_reservation.png" alt="" />
+          예약하기
+        </a>
+      </div>
+      <div class="btnYbs" data-ybs-button style="display: none;">
+        <!-- MAPPER: property.ybsId -->
+        <a href="#!">
+          <img src="images/icon_reservation.png" alt="" />
+          YBS
+        </a>
+      </div>
+      <div class="btnMenu">
+        <img src="images/icon_menu.png" alt="" />
+      </div>
+      <div class="btnClose">
+        <img src="images/icon_close.png" alt="" />
+      </div>
+    </div>
+  </div>
+</header>

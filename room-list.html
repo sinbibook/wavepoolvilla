@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 렌더 게이트: 매핑 전 placeholder/fallback 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>html.tpl-loading body{opacity:0}body{opacity:1;transition:opacity .3s ease}</style>
+    <script>document.documentElement.classList.add('tpl-loading');window.__tplReveal=function(){document.documentElement.classList.remove('tpl-loading');};setTimeout(function(){window.__tplReveal&&window.__tplReveal();},3000);</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:,">
+    <title data-page-title>경주 웨이브 독채 풀빌라 펜션</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/room-list.css" />
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="경주 웨이브 독채 풀빌라 펜션" />
+  <meta property="og:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta property="og:url" content="https://wavepoolvilla.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="경주 웨이브 독채 풀빌라 펜션" />
+  <meta name="twitter:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta name="naver-site-verification" content="b76a3a7f81ddfae14c32c6bc8e633c1aa5fd2ff0" />
+  <meta name="google-site-verification" content="yxxNnQN-TP7reQnPiZLjcQA4Hm2HZsdc6gpjAzsKnm0" />
+</head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <!-- MAPPER: customFields.pages.roomList.sections[0].hero.images[isSelected] -->
+        <div class="con0" data-aos="fade-up">
+          <div class="swiper">
+            <div class="swiper-wrapper" data-room-list-hero-slides>
+              <div class="swiper-slide">
+                <img alt="" />
+                <div class="tx1">ROOMS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="conRoomList w1440">
+          <!-- MAPPER: homepage.customFields.property.name -->
+          <div class="conTitle" data-aos="fade-up">
+            <div class="tx1">ROOMS</div>
+            <div class="tx2">
+              <div class="bold spot" data-property-name></div>
+            </div>
+          </div>
+          <div class="roomGrid" data-room-list-grid>
+            <!-- 객실 카드는 room-list-mapper.js가 동적 생성 -->
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+            <div class="roomCard" data-aos="fade-up">
+              <a href="room.html">
+                <div class="imgOb">
+                  <img alt="" />
+                </div>
+                <div class="info">
+                  <div class="name">하드코딩</div>
+                  <div class="desc">하드코딩</div>
+                  <div class="more">VIEW MORE</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/room-list-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/room-list.js"></script>
+  </body>
+</html>

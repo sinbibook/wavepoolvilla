@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 렌더 게이트: 매핑 전 placeholder/fallback 깜빡임 방지 (매핑 완료 시 페이드인) -->
+    <style>html.tpl-loading body{opacity:0}body{opacity:1;transition:opacity .3s ease}</style>
+    <script>document.documentElement.classList.add('tpl-loading');window.__tplReveal=function(){document.documentElement.classList.remove('tpl-loading');};setTimeout(function(){window.__tplReveal&&window.__tplReveal();},3000);</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:,">
+    <title data-page-title>경주 웨이브 독채 풀빌라 펜션 - 홈</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/theme.css" as="style">
+    <link rel="preload" href="styles/common.css" as="style">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/popup.css">
+    <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="경주 웨이브 독채 풀빌라 펜션 - 홈" />
+  <meta property="og:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta property="og:url" content="https://wavepoolvilla.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="경주 웨이브 독채 풀빌라 펜션 - 홈" />
+  <meta name="twitter:description" content="아름다운 천년의 역사 경주에서 독채로 오션뷰를 즐겨 숙소에서도 아름다운 경치를 감상하고 풀빌라 사용으로 숙소에서도 많은 추억 가져가세요!" />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/03/17/5RGOEKSlB0LY.jpg" />
+  <meta name="naver-site-verification" content="b76a3a7f81ddfae14c32c6bc8e633c1aa5fd2ff0" />
+  <meta name="google-site-verification" content="yxxNnQN-TP7reQnPiZLjcQA4Hm2HZsdc6gpjAzsKnm0" />
+</head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="con0" data-aos="fade-up">
+          <div class="swiper">
+            <!-- MAPPER: customFields.pages.index.sections[0].hero.images[isSelected] -->
+            <div class="swiper-wrapper" data-index-hero-slides></div>
+            <div class="swiperNavi">
+              <div class="swiper-button-prev">
+                <img src="images/icon_left_1.png" alt="" />
+                Prev
+              </div>
+              <div class="bar"></div>
+              <div class="swiper-button-next">
+                Next
+                <img src="images/icon_right_1.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="con1">
+          <div class="w1440">
+            <div class="conTitle" data-aos="fade-up">
+              <div class="tx1">ROOM PREVIEW</div>
+              <!-- 여유롭고 특별한 공간 하드코딩 / 숙소명 매핑 -->
+              <div class="tx2">
+                여유롭고 특별한 공간<br />
+                <!-- MAPPER: homepage.customFields.property.name -->
+                <div class="bold spot" data-property-name></div>
+              </div>
+            </div>
+            <div class="swiper-pagination" data-aos="fade-up"></div>
+            <div class="swiperControl">
+              <div class="fraction">
+                <div class="number"></div>
+                <span class="bar">/</span>
+                <div class="total"></div>
+              </div>
+              <div class="navi">
+                <div class="swiper-button-prev">
+                  <img src="images/icon_left_2.png" alt="" />
+                </div>
+                <div class="swiper-button-next">
+                  <img src="images/icon_right_2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- MAPPER: customFields.roomtypes[] thumbnail[isSelected] + name (+ rooms[] id매칭 구조) -->
+            <div class="swiper right" data-aos="fade-left">
+              <div class="swiper-wrapper" data-index-room-slides></div>
+            </div>
+          </div>
+        </div>
+        <!-- MAPPER: property.facilities[].images[isSelected][0].url + name -->
+        <div class="con3">
+          <div class="w1440">
+            <div class="conTitle" data-aos="fade-up">
+              <div class="tx1">SPECIAL PREVIEW</div>
+              <div class="tx2">
+                <div class="bold spot">다양한 즐길거리</div>
+              </div>
+            </div>
+            <div class="swiper-pagination" data-aos="fade-up"></div>
+            <!-- MAPPER: facility cards 동적 생성 -->
+            <div class="swiper">
+              <div class="swiper-wrapper" data-index-facility-slides></div>
+            </div>
+          </div>
+        </div>
+        <div class="con4">
+          <div class="conTitle" data-aos="fade-up">
+            <div class="tx0">Make your Stay Even Better</div>
+            <!-- MAPPER: property.name (typing 섹션) -->
+            <div class="typing-container tx2">
+              <div class="typing-wrapper">
+                <div class="typing-line-wrapper">
+                  <div id="typing1" class="typing-line"></div>
+                  <div class="cursor" id="cursor1"></div>
+                </div>
+                <div class="typing-line-wrapper">
+                  <div id="typing2" class="typing-line bold spot"></div>
+                  <div class="cursor" id="cursor2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- MAPPER: property.name + property.nameEn (con4 하단) -->
+          <div class="t0" data-aos="fade-up">
+            <span class="t1"></span>
+            <span class="bar">|</span>
+            <span class="t2"></span>
+          </div>
+          <a href="#!" data-booking-link class="btnBooking" data-aos="fade-up">
+            <div class="circle">
+              <img src="images/icon_plus_black.png" alt="" />
+              <div class=""><em class="black">BOOKING</em></div>
+              <div class="cover"><em class="white">BOOKING</em></div>
+            </div>
+          </a>
+        </div>
+        <!-- MAPPER: property.address -->
+        <div class="con5">
+          <div class="w1440">
+            <div class="conTitle mobile">
+              <div class="tx2">
+                <!-- MAPPER: homepage.customFields.property.name -->
+                <span class="bold" data-property-name></span><br />
+                <span class="bold spot">찾아오시는 길</span>
+              </div>
+            </div>
+            <!-- MAPPER: customFields.pages.index.sections[0].signature.images[isSelected] -->
+            <div class="imgWrap">
+              <img src="" alt="" data-aos="fade-up" />
+              <img src="" alt="" data-aos="fade-up" />
+            </div>
+            <div class="textWrap" data-aos="fade-up">
+              <div class="conTitle pc">
+                <div class="tx2">
+                  <!-- MAPPER: homepage.customFields.property.name -->
+                  <span class="bold" data-property-name></span><br />
+                  <span class="bold spot">찾아오시는 길</span>
+                </div>
+              </div>
+              <div class="t1">네이게이션 검색 시</div>
+              <!-- MAPPER: property.address -->
+              <div class="t2" data-directions-address></div>
+              <!-- MAPPER: property.realtimeBookingId -->
+              <a href="#!" data-booking-link class="btnBooking_2">BOOKING</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/preview-handler.js"></script>
+    <script src="js/image-helpers.js"></script>
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+    <script src="js/data-mapper/pages/index-mapper.js"></script>
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+    <script src="js/header-footer-loader.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/pages/index.js"></script>
+    <div id="popup-container"></div>
+    <script src="js/popup.js"></script>
+  </body>
+</html>

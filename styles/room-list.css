@@ -1,0 +1,81 @@
+/* ============================================================
+   Room List Page
+   ============================================================ */
+.conRoomList {
+  padding-top: 230px;
+  padding-bottom: 230px;
+}
+@media (max-width: 1440px) {
+  .conRoomList {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px 40px;
+  margin-top: 80px;
+}
+@media (max-width: 1440px) {
+  .roomGrid {
+    gap: 40px 20px;
+    margin-top: 50px;
+  }
+}
+@media (max-width: 1180px) {
+  .roomGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.roomCard a {
+  display: block;
+  color: #000;
+}
+.roomCard .imgOb {
+  width: 100%;
+  padding-top: 65%;
+  overflow: hidden;
+}
+.roomCard .imgOb img {
+  transition: transform 0.6s ease;
+}
+.roomCard:hover .imgOb img {
+  transform: scale(1.05);
+}
+.roomCard .info {
+  padding: 25px 0 20px;
+  border-bottom: 1px solid #ddd;
+}
+@media (max-width: 1440px) {
+  .roomCard .info { padding: 15px 0 15px; }
+}
+.roomCard .info .name {
+  font-size: 20px;
+  font-weight: 700;
+}
+@media (max-width: 1440px) {
+  .roomCard .info .name { font-size: 16px; }
+}
+.roomCard .info .desc {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+.roomCard .info .more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-secondary);
+  letter-spacing: 0.05em;
+}
+.roomCard .info .more::after {
+  content: "→";
+  font-size: 16px;
+}

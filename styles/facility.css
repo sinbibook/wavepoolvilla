@@ -1,0 +1,252 @@
+/* ============================================================
+   Facility Page (Special) - Con11, Con12
+   ============================================================ */
+.con11 {
+  padding-top: 230px;
+  padding-bottom: 120px;
+}
+@media (max-width: 1440px) {
+  .con11 {
+    padding-top: 70px;
+    padding-bottom: 50px;
+  }
+}
+
+.con12 {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-gap: 60px 110px;
+  padding-bottom: 180px;
+}
+@media (max-width: 1440px) {
+  .con12 {
+    display: flex;
+    grid-gap: 0;
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+  }
+}
+/* SPECIAL PREVIEW 제목 - 영문 폰트 */
+.con3 .conTitle .tx1 {
+  font-family: var(--font-en-main);
+}
+
+.con12 .tx1 {
+  font-size: 100px;
+  font-weight: 800;
+  color: var(--color-primary);
+  font-family: var(--font-en-main);
+}
+@media (max-width: 1440px) {
+  .con12 .tx1 {
+    display: flex;
+    justify-content: center;
+    order: 4;
+    width: 100%;
+    font-size: 50px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 1180px) {
+  .con12 .tx1 { font-size: 30px; }
+}
+.con12 .img .inner {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+.con12 .img .num,
+.con12 .img .text {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-secondary);
+}
+@media (max-width: 1180px) {
+  .con12 .img .num,
+  .con12 .img .text { font-size: 11px; }
+}
+@media (max-width: 1440px) {
+  .con12 .img_1 {
+    width: 50%;
+    order: 2;
+  }
+}
+.con12 .img_1 .inner { padding-left: 30px; }
+.con12 .img_1 .imgOb {
+  width: 100%;
+  padding-top: 63%;
+}
+@media (max-width: 1440px) {
+  .con12 .img_1 .imgOb { padding-top: 87%; }
+}
+.con12 .img_1 .num {
+  top: 100%;
+  left: 50px;
+  width: 10px;
+  height: 10px;
+  margin-top: 10px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_1 .num { left: 40px; }
+  .con12 .img_1 .num img { height: 100%; }
+}
+.con12 .img_1 .text {
+  display: flex;
+  justify-content: flex-end;
+  top: 100%;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  margin-top: 10px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_1 .text { right: 10px; }
+  .con12 .img_1 .text img { height: 100%; }
+}
+.con12 .img_2 {
+  width: 50%;
+  margin-top: -100px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_2 {
+    order: 1;
+    margin-top: 0;
+    padding-left: 40px;
+  }
+  .con12 .img_2 .inner { width: 83%; }
+}
+@media (max-width: 1180px) {
+  .con12 .img_2 { padding-left: 20px; }
+}
+.con12 .img_2 .imgOb {
+  width: 100%;
+  padding-top: 127%;
+}
+@media (max-width: 1440px) {
+  .con12 .img_2 .imgOb { padding-top: 116%; }
+}
+.con12 .img_2 .num {
+  display: flex;
+  justify-content: flex-end;
+  top: 20px;
+  right: -20px;
+  transform: rotate(-90deg);
+  width: 10px;
+  height: 10px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_2 .num { top: 10px; }
+}
+.con12 .img_2 .text {
+  bottom: 20px;
+  right: -20px;
+  transform: rotate(-90deg);
+  width: 10px;
+  height: 10px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_2 .text { bottom: 10px; }
+}
+.con12 .img_3 {
+  width: 100%;
+  margin-top: -200px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_3 {
+    order: 3;
+    margin-top: 40px;
+    padding-left: 100px;
+  }
+}
+.con12 .img_3 .imgOb {
+  width: 100%;
+  padding-top: 64%;
+}
+@media (max-width: 1440px) {
+  .con12 .img_3 .imgOb { padding-top: 58%; }
+}
+.con12 .img_3 .num {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  top: 20px;
+  right: 100%;
+  transform: rotate(-90deg);
+  width: 10px;
+  height: 10px;
+  padding-bottom: 10px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_3 .num { top: 10px; }
+}
+.con12 .img_3 .text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  bottom: 20px;
+  right: 100%;
+  transform: rotate(-90deg);
+  width: 10px;
+  height: 10px;
+  padding-bottom: 10px;
+}
+@media (max-width: 1440px) {
+  .con12 .img_3 .text { bottom: 10px; }
+}
+
+/* ============================================================
+   Facility Page - Con3 Special Preview Pagination
+   ============================================================ */
+.con3 .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  position: relative;
+  inset: 0;
+}
+
+@media (max-width: 1440px) {
+  .con3 .swiper-pagination {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.con3 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.con3 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  margin: 0;
+  background: none;
+  border-radius: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 1440px) {
+  .con3 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .con3 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    font-size: 14px;
+    padding: 1px;
+  }
+}
+
+.con3 .swiper-pagination-bullet-active {
+  position: relative;
+  color: var(--color-secondary);
+}
+
+.con3 .swiper-pagination-bullet-active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-secondary);
+}
