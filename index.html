@@ -145,8 +145,10 @@
             </div>
             <!-- MAPPER: customFields.pages.index.sections[0].signature.images[isSelected] -->
             <div class="imgWrap">
-              <img src="" alt="" data-aos="fade-up" />
-              <img src="" alt="" data-aos="fade-up" />
+              <!-- ⚠️ `src` 를 비워 두지 않는다. `src=""` 는 브라우저가 현재 페이지를 다시 요청한다.
+                   매퍼가 채우기 전까지 속성 자체를 두지 않는다. -->
+              <img alt="" data-aos="fade-up" />
+              <img alt="" data-aos="fade-up" />
             </div>
             <div class="textWrap" data-aos="fade-up">
               <div class="conTitle pc">

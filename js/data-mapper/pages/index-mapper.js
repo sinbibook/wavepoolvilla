@@ -92,34 +92,31 @@
     if (!roomtypes.length) return;
 
     var self = this;
+    // Room Preview 카드는 groupName 과 무관하게 **항상 전체 객실**을 깐다.
+    // 그룹으로 접히는 곳은 헤더 ROOMS 메뉴와 객실 상세 탭뿐이고,
+    // 카드는 저마다 자기 객실 상세로 연결한다.
     roomtypes.forEach(function (rt) {
-      if (!rt.name || !rt.name.trim()) return;
-      var thumbUrl = self.getFirstSelectedImage(
-        (rt.images || []).filter(function (img) {
-          return img.category === 'roomtype_thumbnail';
-        })
-      );
-      var matched = rooms.filter(function (r) {
-        return r.id === rt.id;
-      })[0];
+      // 원본이 내려둔 객실은 카드도 내지 않는다 — 그룹도 없고 사진도 없으면 보여줄 게 없다.
+      // 크롤러가 이름·사진을 못 읽은 경우는 groupName 이 남아 있어 여기서 걸리지 않는다.
+      if (rt && !self.getRoomGroupName(rt) && !(rt.images || []).length) return;
+      var roomLabel = (rt && rt.name) || '';
+      if (!String(roomLabel).trim() || !rt) return;
+      var thumbUrl = self.getFirstSelectedImage((rt.images || []).filter(function (img) { return img.category === 'roomtype_thumbnail'; }));
+      var matched = rooms.filter(function (r) { return r.id === rt.id; })[0];
 
       var div = document.createElement('div');
       div.className = 'swiper-slide';
-      div.setAttribute('data-title', rt.name || '');
+      div.setAttribute('data-title', roomLabel);
 
       var img = document.createElement('img');
-      if (thumbUrl) {
-        img.src = thumbUrl;
-      } else {
-        ImageHelpers.applyPlaceholder(img);
-      }
-      img.alt = rt.name || '';
+      if (thumbUrl) { img.src = thumbUrl; } else { ImageHelpers.applyPlaceholder(img); }
+      img.alt = roomLabel;
 
       var a = document.createElement('a');
-      a.href = 'room.html?id=' + rt.id;
+      a.href = self.getRoomMenuLink(rt, 'id');
       a.className = 'tx';
       a.innerHTML =
-        '<div class="tx1">' + (rt.name || '') + '</div>' +
+        '<div class="tx1">' + roomLabel + '</div>' +
         '<div class="tx2">' + buildRoomStructure(matched) + '</div>' +
         '<div class="more"></div>';
 
@@ -129,7 +126,6 @@
     });
   };
 
-  // MAPPER: property.facilities[].images[isSelected][0].url + name
   IndexMapper.prototype.mapSpecialPreview = function () {
     var facilities = this.getProperty().facilities || [];
     var wrapper = document.querySelector('[data-index-facility-slides]');

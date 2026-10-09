@@ -17,40 +17,8 @@ function initLayoutMapSwipers() {
     }));
   }
 
-  // con1 Room Preview Swiper
-  layoutMapSwipers.push(initSwiper($('.con1'), {
-    slidesPerView: 3,
-    spaceBetween: 40,
-    loop: true,
-    speed: 1000,
-    allowTouchMove: true,
-    waitForTransition: false,
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    pagination: {
-      el: $('.con1 .swiper-pagination')[0],
-      clickable: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '">' + ($('.con1 .swiper-slide').eq(index).data('title') || '') + '</span>';
-      },
-    },
-    navigation: {
-      nextEl: $('.con1 .swiper-button-next')[0],
-      prevEl: $('.con1 .swiper-button-prev')[0],
-    },
-    on: {
-      init: function () {
-        $('.con1 .total').text($('.con1 .swiper-slide').length);
-      },
-      slideChange: function () {
-        $('.con1 .number').text(this.realIndex + 1);
-      },
-    },
-    breakpoints: {
-      0:    { slidesPerView: 1, spaceBetween: 20 },
-      768:  { slidesPerView: 2, spaceBetween: 30 },
-      1440: { slidesPerView: 3, spaceBetween: 40 },
-    },
-  }));
+  // con1 Room Preview Swiper (옵션은 common.js roomPreviewSwiperOptions)
+  layoutMapSwipers.push(initSwiper($('.con1'), roomPreviewSwiperOptions($('.con1'))));
 }
 
 // 매퍼가 슬라이드를 주입한 뒤 발생시키는 이벤트로 초기화 (localhost/preview 공통)

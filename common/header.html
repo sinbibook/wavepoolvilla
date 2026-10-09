@@ -48,8 +48,28 @@
           <a href="directions.html">오시는길</a>
         </div>
       </div>
+      <!-- 479px 이하 전용: 헤더 줄에 자리가 없어 메뉴 패널 맨 아래에 둔다 (CSS 가 그 폭에서만 노출) -->
+      <!-- MAPPER: homepage.socialLinks.blog / .instagram — 값 없으면 링크·래퍼 숨김 (기본 숨김) -->
+      <div class="menuSocial" data-social-wrap style="display: none;">
+        <a href="#!" data-homepage-socialLinks-blog style="display: none;">
+          <img src="images/n_logo.png" alt="네이버" />
+        </a>
+        <a href="#!" data-homepage-socialLinks-instagram style="display: none;">
+          <img src="images/insta_logo.png" alt="인스타그램" />
+        </a>
+      </div>
     </nav>
     <div class="right">
+      <!-- MAPPER: 네이버 ← homepage.socialLinks.blog / 인스타그램 ← homepage.socialLinks.instagram -->
+      <!-- 값 없으면 링크 숨김, 둘 다 없으면 래퍼째 숨김 (기본 숨김). 479px 이하는 메뉴 패널(.menuSocial)로 -->
+      <div class="btnSocial" data-social-wrap style="display: none;">
+        <a href="#!" data-homepage-socialLinks-blog style="display: none;">
+          <img src="images/n_logo.png" alt="네이버" />
+        </a>
+        <a href="#!" data-homepage-socialLinks-instagram style="display: none;">
+          <img src="images/insta_logo.png" alt="인스타그램" />
+        </a>
+      </div>
       <div class="btnReservation">
         <!-- MAPPER: property.realtimeBookingId -->
         <a data-booking-link href="#!">
