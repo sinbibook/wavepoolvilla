@@ -7,6 +7,9 @@ class PreviewHandler {
         this.adminDataReceived = false;
         this.fallbackTimeout = null;
         this.parentOrigin = null;
+        // 마지막 POPUP_UPDATE 페이로드. popup.js 가 이 파일보다 늦게 로드돼
+        // 메시지를 놓쳤을 때 popup.js 쪽에서 꺼내 쓴다.
+        this.lastPopupData = null;
         this.init();
     }
 
@@ -101,7 +104,13 @@ class PreviewHandler {
                 this.handlePageNavigation(event.data);
                 break;
             case 'section_update':
-                await this.handleSectionUpdate(data);
+                // socialLinks 는 페이지 섹션이 아니라 homepage.socialLinks(전 페이지 공통 헤더) 값이다.
+                // 루트에 병합하지 않고 별도 처리한다. 다른 섹션은 기존 동작 그대로.
+                if (event.data.section === 'socialLinks') {
+                    await this.handleSocialLinksUpdate(data);
+                } else {
+                    await this.handleSectionUpdate(data);
+                }
                 break;
             case 'THEME_UPDATE':
                 this.handleThemeUpdate(data);
@@ -183,6 +192,33 @@ class PreviewHandler {
         this.currentData = this.mergeData(this.currentData, data);
         await this.renderTemplate(this.currentData);
         this.refreshPopupFromTemplate(this.currentData);
+        this.notifyRenderComplete('SECTION_UPDATE_COMPLETE');
+    }
+
+    // section_update(section: 'socialLinks') — data 는 { facebook, instagram, blog, youtube }.
+    // homepage.socialLinks 에 반영한 뒤 헤더 소셜 버튼만 다시 매핑한다(페이지 전체 재렌더 없음, pages 오염 없음).
+    async handleSocialLinksUpdate(data) {
+        this.adminDataReceived = true;
+
+        if (this.fallbackTimeout) {
+            clearTimeout(this.fallbackTimeout);
+            this.fallbackTimeout = null;
+        }
+
+        if (!this.isInitialized) {
+            return;
+        }
+
+        if (!this.currentData.homepage) this.currentData.homepage = {};
+        this.currentData.homepage.socialLinks = data || {};
+
+        await this.waitForHeaderDOM();
+        if (window.HeaderFooterMapper) {
+            const headerFooterMapper = new window.HeaderFooterMapper();
+            headerFooterMapper.data = this.currentData;
+            headerFooterMapper.isDataLoaded = true;
+            headerFooterMapper.mapSocialLinks();
+        }
         this.notifyRenderComplete('SECTION_UPDATE_COMPLETE');
     }
 
@@ -325,30 +361,35 @@ class PreviewHandler {
     }
 
     handlePopupUpdate(data) {
+        this.lastPopupData = data;
         if (window.popupManager) {
-            window.popupManager.updateFromPreview(data, true);
+            window.popupManager.updateFromPreview(data);
         } else if (window.PopupManager) {
-            window.popupManager = new PopupManager();
+            window.popupManager = new window.PopupManager();
             window.popupManager.init().then(() => {
-                window.popupManager.updateFromPreview(data, true);
+                window.popupManager.updateFromPreview(data);
             });
         }
 
         this.notifyRenderComplete('POPUP_UPDATE_COMPLETE');
     }
 
-    // 전체 템플릿 데이터에서 팝업 추출 → 미리보기 렌더 (초기/업데이트 렌더 시 enabled 팝업 표시)
-    // POPUP_UPDATE 메시지가 따로 오지 않아도 template-full-banner-flat처럼 enabled면 노출되도록 보강.
+    // 템플릿 데이터에 팝업 정보가 실려온 경우에만 미리보기 팝업을 갱신한다.
+    // popup 노드가 없는 갱신(다른 영역 수정)으로는 떠 있는 팝업을 건드리지 않는다.
+    // (template-center-slider / template-full-banner-accordion 과 동일한 가드)
     refreshPopupFromTemplate(data) {
-        const popups =
-            (data && data.homepage && data.homepage.customFields && data.homepage.customFields.popup && data.homepage.customFields.popup.popups) ||
-            (data && data.customFields && data.customFields.popup && data.customFields.popup.popups) ||
-            [];
+        var popupNode =
+            (data && data.homepage && data.homepage.customFields && data.homepage.customFields.popup) ||
+            (data && data.customFields && data.customFields.popup) ||
+            null;
+        if (!popupNode) return;
+
+        var popups = Array.isArray(popupNode.popups) ? popupNode.popups : [];
         if (window.popupManager) {
             window.popupManager.updateFromPreview(popups);
         } else if (window.PopupManager) {
-            window.popupManager = new PopupManager();
-            window.popupManager.init().then(() => {
+            window.popupManager = new window.PopupManager();
+            window.popupManager.init().then(function () {
                 window.popupManager.updateFromPreview(popups);
             });
         }

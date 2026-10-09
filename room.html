@@ -1,21 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <!-- 렌더 게이트: 매핑 전 placeholder/fallback 깜빡임 방지 (매핑 완료 시 페이드인) -->
-    <style>html.tpl-loading body{opacity:0}body{opacity:1;transition:opacity .3s ease}</style>
-    <script>document.documentElement.classList.add('tpl-loading');window.__tplReveal=function(){document.documentElement.classList.remove('tpl-loading');};setTimeout(function(){window.__tplReveal&&window.__tplReveal();},3000);</script>
+    <style>
+      html.tpl-loading body {
+        opacity: 0;
+      }
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add("tpl-loading");
+      window.__tplReveal = function () {
+        document.documentElement.classList.remove("tpl-loading");
+      };
+      setTimeout(function () {
+        window.__tplReveal && window.__tplReveal();
+      }, 3000);
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="data:,">
+    <link rel="icon" href="data:," />
     <title data-page-title>경주 웨이브 독채 풀빌라 펜션 - 객실안내</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles/theme.css" as="style">
-    <link rel="preload" href="styles/common.css" as="style">
+    <link rel="preload" href="styles/theme.css" as="style" />
+    <link rel="preload" href="styles/common.css" as="style" />
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles/theme.css">
-    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/theme.css" />
+    <link rel="stylesheet" href="styles/common.css" />
     <link rel="stylesheet" href="styles/room.css" />
     <!-- Open Graph Meta Tags for Social Media -->
   <meta property="og:type" content="website" />
@@ -52,6 +71,13 @@
             </div>
           </div>
         </div>
+        <!-- MAPPER: 객실 탭 — 그룹 안이면 그 그룹의 객실만, 아니면 그룹/객실 목록 -->
+        <div class="roomNav">
+          <ul class="w1440" data-room-nav-list>
+            <li class="on"><a href="layout-map.html">미리보기</a></li>
+          </ul>
+        </div>
+
         <div class="con8">
           <div class="w1440">
             <!-- MAPPER: rooms[current].name + description + images[0].thumbnail[0].url -->
@@ -80,11 +106,11 @@
             <table cellspacing="0" cellpadding="0" class="table_default">
               <thead>
                 <tr>
-                  <th style="width: 15%;">객실명</th>
-                  <th style="width: 5%;">기준</th>
-                  <th style="width: 5%;">최대</th>
-                  <th style="width: 20%;">유형</th>
-                  <th style="width: 20%;">평형</th>
+                  <th style="width: 15%">객실명</th>
+                  <th style="width: 5%">기준</th>
+                  <th style="width: 5%">최대</th>
+                  <th style="width: 20%">유형</th>
+                  <th style="width: 20%">평형</th>
                 </tr>
               </thead>
               <tbody>
@@ -142,6 +168,14 @@
           <img alt="" data-room-image-0 />
           <img alt="" data-room-image-1 />
         </div>
+        <!-- s: 객실 평면도 — 원본 객실 상세의 평면도 크롤링 이미지가 있을 때만 노출.
+             제목 영역 없이 도면 이미지 한 장만 놓는다. 없으면 매퍼가 구간째 숨긴다. -->
+        <div class="room_floorplan" data-room-floorplan-section style="display: none">
+          <!-- data-* : data-room-floorplan-image
+               roomtypes[current] 평면도 이미지 → 없으면 섹션 미노출 -->
+          <img alt="객실 평면도" data-room-floorplan-image />
+        </div>
+        <!--// 객실 평면도 -->
         <div class="con1">
           <div class="w1440">
             <div class="conTitle" data-aos="fade-up">

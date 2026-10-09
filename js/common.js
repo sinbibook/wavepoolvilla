@@ -8,9 +8,80 @@
     }
   };
 
+  // Room Preview Swiper 옵션 (index / room / layout-map 공통)
+  // ⚠️ PC 는 slidesPerView 3 유지 — 정사각형 카드라 2로 하면 카드(700px)가 왼쪽 영역보다 커져 위가 잘린다.
+  //    객실이 3개 이하면 Swiper 가 loop 를 끄고 잠가 탭·화살표·자동재생이 멈추므로,
+  //    원본 세트를 복제해 loop 최소 개수(4)를 채우고 탭/번호는 원본 개수 기준으로만 표시한다.
+  window.roomPreviewSwiperOptions = function ($con) {
+    var $wrapper = $con.find('.swiper-wrapper');
+    $wrapper.children('.is-loop-clone').remove();
+    var $origin = $wrapper.children('.swiper-slide');
+    var count = $origin.length;
+    var titles = $origin.map(function () { return $(this).data('title') || ''; }).get();
+    if (count > 1) {
+      while ($wrapper.children('.swiper-slide').length < 4) {
+        $origin.clone().addClass('is-loop-clone').appendTo($wrapper);
+      }
+    }
+
+    function syncBullets(swiper) {
+      if (!count || !swiper.pagination || !swiper.pagination.bullets) return;
+      var activeClass = swiper.params.pagination.bulletActiveClass;
+      var active = swiper.realIndex % count;
+      swiper.pagination.bullets.forEach(function (bullet, i) {
+        bullet.classList.toggle(activeClass, i === active);
+      });
+    }
+
+    return {
+      slidesPerView: 3,
+      spaceBetween: 40,
+      loop: count > 1,
+      speed: 1000,
+      allowTouchMove: true,
+      waitForTransition: false,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      pagination: {
+        el: $con.find('.swiper-pagination')[0],
+        clickable: true,
+        renderBullet: function (index, className) {
+          // 복제 슬라이드 몫의 탭은 숨김
+          if (index >= count) return '<span class="' + className + '" style="display:none"></span>';
+          return '<span class="' + className + '">' + titles[index] + '</span>';
+        },
+      },
+      navigation: {
+        nextEl: $con.find('.swiper-button-next')[0],
+        prevEl: $con.find('.swiper-button-prev')[0],
+      },
+      on: {
+        init: function () {
+          $con.find('.total').text(count);
+          $con.find('.number').text(count ? (this.realIndex % count) + 1 : '');
+          syncBullets(this);
+        },
+        slideChange: function () {
+          $con.find('.number').text((this.realIndex % count) + 1);
+        },
+        paginationUpdate: function () {
+          syncBullets(this);
+        },
+      },
+      breakpoints: {
+        0:    { slidesPerView: 1, spaceBetween: 20 },
+        768:  { slidesPerView: 2, spaceBetween: 30 },
+        1440: { slidesPerView: 3, spaceBetween: 40 },
+      },
+    };
+  };
+
   function initCommon() {
     // AOS
-    AOS.init({ once: true, duration: 2000 });
+    // ⚠️ 404.html 은 aos.js 를 싣지 않는다(오류 페이지라 등장 애니메이션이 불필요).
+    //    존재 검사 없이 호출하면 ReferenceError 로 이 아래 전체가 중단된다.
+    //    layout-map / nearby-attractions 가 비노출이면 404 로 리다이렉트되므로
+    //    그 두 페이지에서도 같은 에러가 났다.
+    if (window.AOS) AOS.init({ once: true, duration: 2000 });
 
     // 모바일 헤더 메뉴
     $(document).on('click', '.header .btnMenu', function () {

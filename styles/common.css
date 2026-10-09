@@ -492,39 +492,35 @@ body {
   .header .btnReservation a img,
   .header .btnYbs a img { width: 20px; }
 }
-
-/* ============================================================
-   Mobile Floating Reservation Button
-   ============================================================ */
-.mobileReservationBtn {
-  display: none;
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  z-index: 99;
+@media (max-width: 1440px) {
 }
-.mobileReservationBtn a {
+/* 네이버(socialLinks.blog)·인스타그램(socialLinks.instagram) — .right 맨 앞, 예약하기와는 .right gap 30px.
+   두 로고 모두 꽉 찬 타일이라 높이만 고정하고 폭은 비율대로(인스타 122x126). */
+.header .right .btnSocial {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  background-color: var(--color-secondary);
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  gap: 10px;
 }
+.header .btnSocial a,
+.header .menuSocial a {
+  display: block;
+  line-height: 0;
+}
+.header .right .btnSocial img { height: 26px; width: auto; }
 @media (max-width: 1440px) {
-  .mobileReservationBtn {
+  .header .right .btnSocial img { height: 22px; }
+}
+/* 479px 이하는 헤더 줄에 자리가 없어(375px 에서 여유 0px) 메뉴 패널 맨 아래(LOCATION 다음)로 옮긴다.
+   .menuSocial 은 nav.menu 안에 있어 1441px 이상 가로 메뉴에서는 반드시 숨겨야 한다. */
+.header .menu .menuSocial { display: none; }
+@media (max-width: 479px) {
+  .header .right .btnSocial { display: none; }
+  .header.active .menu .menuSocial {
     display: flex;
+    gap: 12px;
+    padding: 30px 0 0;
   }
-  .mobileReservationBtn a {
-    gap: 8px;
-    font-size: 14px;
-    padding: 12px 16px;
-  }
-  .mobileReservationBtn a img { width: 20px; }
+  .header .menu .menuSocial img { height: 30px; width: auto; }
 }
 
 /* ============================================================
@@ -600,12 +596,23 @@ body {
   margin-bottom: 100px;
   font-size: 100px;
   font-weight: 700;
+  line-height: 1.15;
+}
+/* 전화번호가 여러 개일 때 두 번째부터 아래 줄에 노출 */
+.footer .tx2 .phoneItem {
+  display: block;
+}
+.footer .tx2 .phoneItem + .phoneItem {
+  margin-top: 20px;
 }
 @media (max-width: 1440px) {
   .footer .tx2 {
     margin-top: 40px;
     margin-bottom: 50px;
     font-size: 30px;
+  }
+  .footer .tx2 .phoneItem + .phoneItem {
+    margin-top: 8px;
   }
 }
 .footer .tx3 { font-size: 14px; }
@@ -722,6 +729,11 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+/* PC: .right 카드(정사각형 ≈453px)가 bottom 기준 absolute 라
+   객실 1~2개로 탭이 적어 왼쪽 영역이 낮아지면 카드 위가 잘린다 → 카드 높이만큼 확보 */
+@media (min-width: 1441px) {
+  .con1 .w1440 { min-height: 454px; }
 }
 .con1 .right {
   position: absolute;
@@ -1116,3 +1128,44 @@ body {
   font-family: var(--font-en-main);
 }
 .con4 .t0 .bar { color: #ddd; }
+
+/* 예약하기 — 모바일 전용(`for_m`). 위치·크기는 전 템플릿 공통 규격이다. */
+.ft_btn_reserve.on {
+  position: fixed;
+  bottom: 80px;
+  right: 7px;
+  z-index: 999;
+}
+
+.ft_btn_reserve.on > a > img {
+  width: 75px;
+  height: 75px;
+}
+
+/* ============================================================
+   우측 하단 플로팅 버튼 — 상담하기 + 예약하기
+   ============================================================ */
+
+/* 예약하기(bottom:80px) 아래에 깔린다.
+   ⚠️ 노출 여부는 매퍼가 정한다 — 총판A(`partnerType === 'distributor_a'`)이고
+      `tripPropertyId` 가 있을 때만 뜬다. PC·모바일 모두 해당한다. */
+#talk_custom_button {
+  position: fixed;
+  right: 7px;
+  bottom: 6px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#talk_custom_button img {
+  width: 75px;
+  height: 75px;
+  display: block;
+}
+
+/* ⚠️ 상담하기가 빠지면(총판B / 판매대행 / tripPropertyId 없음) 예약하기 아래가
+   빈 채로 떠 있게 된다. 매퍼가 루트에 찍는 `data-consult` 로 바닥에 붙인다.
+   예약하기 자체는 파트너 타입과 무관하게 `.for_m` 미디어쿼리로만 갈린다. */
+[data-consult='off'] .ft_btn_reserve.on {
+  bottom: 6px;
+}
