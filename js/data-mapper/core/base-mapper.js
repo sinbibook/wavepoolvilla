@@ -257,6 +257,15 @@
     return (item.roomtypes || []).some(function (rt) { return String(rt && rt.id) === String(currentId); });
   };
 
+  // 객실 미리보기(layout-map) 사용 여부.
+  // layout-map.html 이 404 로 보내는 기준과 같아야 한다 — 섹션이 없거나 enabled=false 면 꺼짐.
+  // 헤더 "미리보기" 링크와 room.html 객실 탭 첫 칸 "미리보기" 도 이 기준으로 숨긴다.
+  BaseDataMapper.prototype.isLayoutMapEnabled = function () {
+    var page = this.getPages().layoutMap;
+    var section = page && page.sections && page.sections[0];
+    return Boolean(section) && section.enabled !== false;
+  };
+
   BaseDataMapper.prototype.updateMetaTags = function (pageSEO) {
     var hp = this.getHomepage();
     var globalSEO = (hp && hp.seo) || {};

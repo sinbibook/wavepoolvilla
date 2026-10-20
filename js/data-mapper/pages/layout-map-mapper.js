@@ -30,12 +30,9 @@
   LayoutMapMapper.prototype.constructor = LayoutMapMapper;
 
   LayoutMapMapper.prototype.mapPage = function () {
-    // enabled=false이면 404로 리다이렉트
-    var pages = this.getPages();
-    if (!pages.layoutMap ||
-        !pages.layoutMap.sections ||
-        !pages.layoutMap.sections[0] ||
-        pages.layoutMap.sections[0].enabled === false) {
+    // enabled=false (또는 섹션 자체가 없음) 이면 404로 리다이렉트.
+    // 헤더 "미리보기" 링크 / room.html 객실 탭 "미리보기" 도 같은 기준(isLayoutMapEnabled)으로 숨긴다.
+    if (!this.isLayoutMapEnabled()) {
       window.location.href = '404.html';
       return;
     }
