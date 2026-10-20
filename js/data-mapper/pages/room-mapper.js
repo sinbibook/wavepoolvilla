@@ -100,8 +100,12 @@
       li.remove();
     });
     var currentId = currentRt && currentRt.id;
+    // 첫 li 는 "미리보기"(layout-map) 다. 미리보기가 꺼져 있으면 눌러도 404 이므로 숨긴다.
     var firstLi = ul.querySelector('li');
-    if (firstLi) firstLi.className = currentId ? '' : 'on';
+    if (firstLi) {
+      firstLi.className = currentId ? '' : 'on';
+      firstLi.style.display = this.isLayoutMapEnabled() ? '' : 'none';
+    }
 
     var roomtypes = this.getRoomtypes();
     var roomItems = this.getRoomMenuItems(roomtypes, function (rt) {

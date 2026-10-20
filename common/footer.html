@@ -6,6 +6,11 @@
     </div>
     <!-- MAPPER: property.contactPhone -->
     <div class="tx2" data-footer-phone></div>
+    <!-- data-* 속성 : data-footer-rural-stay-mark-wrap (customFields.footer.ruralStayMark 가 있을 때만 노출, 기본 숨김)
+         data-footer-rural-stay-mark : 농어촌민박사업자 이미지 (표시마크 + 신고번호, alt = description) -->
+    <div class="ruralStayMarkWrap" data-footer-rural-stay-mark-wrap style="display: none">
+      <img class="ruralStayMark" src="" alt="농어촌민박사업자" data-footer-rural-stay-mark />
+    </div>
     <div class="tx3">
       <!-- MAPPER: property.businessInfo.* 조합 -->
       <span data-footer-business-info></span>
