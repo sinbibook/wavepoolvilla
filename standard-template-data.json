@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.2.0",
-    "generatedAt": "2026-10-20T09:31:03.455211784Z",
+    "version": "1.3.0",
+    "generatedAt": "2026-10-20T09:34:06.229521107Z",
     "templateType": "trip_c",
     "propertyId": "79069bf9-1399-4b3b-9584-6507c1be04f5",
     "homepageId": "bf2062ca-1370-4a52-b5c6-0335b8f691fe"
@@ -1707,8 +1707,8 @@
                 "title": "객실 배치도",
                 "images": [
                   {
-                    "id": "a1f70a00-cd2c-4967-a3c2-c8a74f3df56a",
-                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/bf2062ca-1370-4a52-b5c6-0335b8f691fe/layout_map_about/1787538425064-mvogjg2zzi.jpg",
+                    "id": "01a158a9-2eff-7805-a6fd-f03a43964b13",
+                    "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/bf2062ca-1370-4a52-b5c6-0335b8f691fe/layout_map_about/1792488844735-7f4wj4clpo.jpg",
                     "sortOrder": 0,
                     "description": "",
                     "isSelected": true,
@@ -2174,6 +2174,7 @@
         },
         {
           "id": "341d513a-d344-4271-8ca3-905957d204a2",
+          "name": "1104호(오션뷰/풀빌라/독채/개별바베큐)",
           "images": [
             {
               "id": "ca17607d-d0f8-40e0-8509-98653e493a88",
